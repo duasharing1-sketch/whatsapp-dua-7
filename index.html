@@ -3,25 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dua 7</title>
+  <title>Dua 7 - Dua Sharing</title>
 </head>
 <body>
   <a id="manualLink" href="#" target="_blank" style="display:none;">Open WhatsApp</a>
+
   <script>
     const message = `*Could hidden envy be harming you?*
 
 This powerful dua is for both protection and healing from:
 
-— Hasad (envy)
-— Al-‘Ayn (evil eye)
-— Sihr (black magic)
+— *Hasad* (envy)
+— *Al-‘Ayn* (evil eye)
+— *Sihr* (black magic)
 
 It calls on Allah by His Names:
 
-— Ash-Shaafi (The Healer)
-— Al-Hafiz (The Protector)
-— Al-Qawiyy (The All-Strong)
-— Al-Waliyy (The Protecting Friend)
+— *Ash-Shaafi* (The Healer)
+— *Al-Hafiz* (The Protector)
+— *Al-Qawiyy* (The All-Strong)
+— *Al-Waliyy* (The Protecting Friend)
 
 Whether the harm is physical, emotional, spiritual — or hidden — Allah is sufficient for us. His protection leaves no trace of their effects.
 
@@ -47,29 +48,21 @@ Access the full supplication in both English and Arabic at: https://www.duashari
 
 When you share this post, you’re not simply sharing a dua. You’re opening the door to millions of people making sincere dua for you — with the Malaika (Angels) themselves saying “Ameen” to every single one.
 
-May Allah accept it from you, and from everyone it reaches through you.
+May Allah accept it from you, and reward you for all those it reaches through you.
 
 Ameen`;
 
-    const fallbacks = {
-      'ﷺ': 'ﷺ (peace be upon him)',
-      'ﷻ': 'ﷻ (may He be glorified)'
-    };
-    let messageWithFallback = message;
-    for (const [symbol, replacement] of Object.entries(fallbacks)) {
-      messageWithFallback = messageWithFallback.replace(new RegExp(symbol, 'g'), replacement);
-    }
-
-    const encodedText = encodeURIComponent(messageWithFallback);
+    const encodedText = encodeURIComponent(message);
     const waProtocol = "whatsapp://send?text=" + encodedText;
     const waWeb = "https://wa.me/?text=" + encodedText;
+
     const manualLink = document.getElementById('manualLink');
     manualLink.href = waWeb;
 
     async function tryShare() {
       try {
         if (navigator.share) {
-          await navigator.share({ text: messageWithFallback });
+          await navigator.share({ text: message });
         } else {
           window.location.href = waProtocol;
           setTimeout(() => { window.location.href = waWeb; }, 1200);
@@ -83,4 +76,5 @@ Ameen`;
   </script>
 </body>
 </html>
+
 
