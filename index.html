@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dua 7 - Dua Sharing</title>
+  <title>Dua 1 - Dua Sharing</title>
 </head>
 <body>
   <a id="manualLink" href="#" target="_blank" style="display:none;">Open WhatsApp</a>
@@ -17,42 +17,33 @@ This powerful dua is for both protection and healing from:
 — *Al-‘Ayn* (evil eye)
 — *Sihr* (black magic)
 
-It calls on Allah by His Names:
+*The Duʿāʾ:*  
 
-— *Ash-Shaafi* (The Healer)
-— *Al-Hafiz* (The Protector)
-— *Al-Qawiyy* (The All-Strong)
-— *Al-Waliyy* (The Protecting Friend)
+Allah is sufficient for us, and He is the best disposer of affairs, the best protector, and the best helper against those who have harmed us with Hasad (envy), Al-Ayn (the evil eye), or Sihr (black magic). Ya Allah (O Allah), Ya Shaafi (O He Who Cures), Ya Hafiz (O  Preserver), Ya Qawiyy (O All Strong), Ya Waliyy (O Protecting Friend), grant us all a complete and thorough cure from all forms, and every effect of envy, the evil eye and black magic. Surround us with Your unmatched and all-encompassing protection. Strengthen us with Your divine safeguarding, ensuring no trace of their effects may touch us or cause us distress. Keep us perpetually under the shade of Your mercy and protection. Indeed, You are the Most Merciful and the bestower of blessings.
 
-Whether the harm is physical, emotional, spiritual — or hidden — Allah is sufficient for us. His protection leaves no trace of their effects.
+This duʿāʾ is part of the *Supplication of Infinite Blessings* — a growing chain of heartfelt duʿāʾs shared by countless believers like you, worldwide.
 
-As Allah says in the Qur’an:
+And because in an authentic hadith reported by Muʿādh ibn Anas (ra), Rasulullah ﷺ encouraged us to share beneficial knowledge, I humbly ask that you please forward this message far and wide — it only takes a few seconds, and your sharing can start a chain of duʿāʾs that continue returning to you from everyone it reaches.
 
-“Hasbiyallāhu la ilāha illa Huwa, ‘alayhi tawakkaltu, wa Huwa Rabbul-‘Arshil-‘Azīm.” “Allah is sufficient for me. There is no god but He. In Him I place my trust, and He is the Lord of the Mighty Throne.” (Surah At-Tawbah 9:129)
+When you share this message, you’re not simply sharing a duʿāʾ. You’re opening the door to countless people making sincere duʿāʾ for you daily — with the Malaika (Angels) themselves saying *“Ameen”* to every single one.
 
-*Allah is sufficient for us, and He is the best disposer of affairs, the best protector, and the best helper against those who have harmed us with Hasad (envy), Al-Ayn (the evil eye), or Sihr (black magic). Ya Allah (O Allah), Ya Shaafi (O He Who Cures), Ya Hafiz (O  Preserver), Ya Qawiyy (O All Strong), Ya Waliyy (O Protecting Friend), grant us all a complete and thorough cure from all forms, and every effect of envy, the evil eye and black magic. Surround us with Your unmatched and all-encompassing protection. Strengthen us with Your divine safeguarding, ensuring no trace of their effects may touch us or cause us distress. Keep us perpetually under the shade of Your mercy and protection. Indeed, You are the Most Merciful and the bestower of blessings.*
+For detailed information on this and the full *Supplication of Infinite Blessings* in both (English + Arabic) visit: https://www.duasharing.com/
 
-This dua is part of *The Supplication of Infinite Blessings* — a powerful collection of heartfelt supplications designed to benefit you in both this life and the next. 
+I make duʿāʾ that Allah accepts it from you, and reward you for all those it reaches through you.
 
-*At Dua Sharing, our mission is simple*: 
+*Ameen.*`;
 
-To encourage sincere dua, meaningful sharing, and to multiply blessings through a growing global chain of people making dua for one another every single day.
+    const fallbacks = {
+      'ﷻ': 'ﷻ',
+      'ﷺ': 'ﷺ'
+    };
 
-As Rasulullah ﷺ said: 
+    let messageWithFallback = message;
+    for (const [symbol, replacement] of Object.entries(fallbacks)) {
+      messageWithFallback = messageWithFallback.replace(new RegExp(symbol, 'g'), replacement);
+    }
 
-“The supplication of a Muslim for his brother in his absence will certainly be answered. Every time he makes a supplication for good for his brother, the angel appointed for this task says: ‘Ameen! And may it be for you too.”
-
-Every post we share is taken directly from the full Supplication of Infinite Blessings — with the aim of moving hearts, inspiring action, and reminding us all of what truly matters.
-
-Access the full supplication in both English and Arabic at: https://www.duasharing.com
-
-When you share this post, you’re not simply sharing a dua. You’re opening the door to millions of people making sincere dua for you — with the Malaika (Angels) themselves saying “Ameen” to every single one.
-
-May Allah accept it from you, and reward you for all those it reaches through you.
-
-Ameen`;
-
-    const encodedText = encodeURIComponent(message);
+    const encodedText = encodeURIComponent(messageWithFallback);
     const waProtocol = "whatsapp://send?text=" + encodedText;
     const waWeb = "https://wa.me/?text=" + encodedText;
 
@@ -62,7 +53,7 @@ Ameen`;
     async function tryShare() {
       try {
         if (navigator.share) {
-          await navigator.share({ text: message });
+          await navigator.share({ text: messageWithFallback });
         } else {
           window.location.href = waProtocol;
           setTimeout(() => { window.location.href = waWeb; }, 1200);
@@ -76,5 +67,3 @@ Ameen`;
   </script>
 </body>
 </html>
-
-
